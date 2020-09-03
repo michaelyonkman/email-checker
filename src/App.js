@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      emailVal: '',
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  render() {
+    return (
+      <div className="App">
+        <h1>E-mail Checker</h1>
+        <form
+          onChange={this.handleChange}
+          onSubmit={this.handleSubmit}
+          autoComplete="off"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <input name="emailVal" type="text"></input>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    );
+  }
+  async getUniqueEmails(email) {
+    let response = await axios.get(`/${email}`);
+    console.log(response.data);
+  }
+  handleSubmit(event) {
+    event.preventDefault();
+    this.getUniqueEmails(this.state.emailVal);
+  }
+  handleChange(event) {
+    console.log(this.state.emailVal);
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
 }
 
 export default App;
