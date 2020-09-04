@@ -4,7 +4,7 @@ A single page app built with React and Express that accepts a list of email addr
 
 ## Getting Started
 
-Fork and clone this repository. `npm install`, `npm start`, and `npm run start-server` to get up and running.
+Fork and clone this repository. `npm install` and `npm start`. In a separate terminal window `npm run start-server`. Now you're up and running!
 
 ## Available Scripts
 
