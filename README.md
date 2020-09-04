@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Email Checker
+
+A single page app built with React and Express that accepts a list of email addresses and returns an integer indicating the number of unique email addresses. Where "unique" email addresses means they will be delivered to the same account using Gmail account matching. Specifically: Gmail will ignore the placement of "." in the username, and it will ignore any portion of the username after a "+".
+
+## Getting Started
+
+Fork and clone this repository. `npm install`, `npm start`, and `npm run start-server` to get up and running.
 
 ## Available Scripts
 
@@ -14,7 +20,7 @@ You will also see any lint errors in the console.
 
 ### `npm run start-server`
 
-Runs the server with nodemon on port 8080.<br />
+Runs the server with nodemon on port 8080.
 
 ### `npm test`
 
